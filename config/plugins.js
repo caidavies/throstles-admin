@@ -17,8 +17,10 @@ module.exports = ({ env }) => ({
         baseUrl: 'https://throstles.s3.eu-west-2.amazonaws.com', // Or your CDN URL if different
         rootPath: '', // Set this if you're using a specific path inside your bucket as the root for uploads
         s3Options: {
+          
           accessKeyId: 'AKIASCFUFUS4TDTQBBEV',
-          secretAccessKey: 'OyFp9WDm4uvPziAYJu3vANJM3+88N7kKspDPlBlw',
+          accessKeyId: env('AWS_ACCESS_KEY_ID'),
+          secretAccessKey: env('AWS_SECRET_KEY'),
           region: 'eu-west-2', // Extracted from your S3 bucket URL
           params: {
             ACL: env('AWS_ACL', 'public-read'), // Default to public-read if not specified
